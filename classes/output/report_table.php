@@ -78,7 +78,7 @@ class report_table extends table_sql implements renderable {
      *
      * @return void
      */
-    protected function init_sql() : void {
+    protected function init_sql() {
         global $DB;
 
         $fields = 'ul.timemodified, ul.userid, ul.info, ul.version AS moodleversion, 0 AS moodlerelease, ' .

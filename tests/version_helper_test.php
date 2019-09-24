@@ -67,7 +67,7 @@ class report_upgradelog_version_helper_testcase extends advanced_testcase {
      *
      * @dataProvider get_release_name_provider
      */
-    public function test_get_release_name(string $version, string $expected) : void {
+    public function test_get_release_name(string $version, string $expected) {
         $this->assertEquals($expected, version_helper::get_release_name($version));
     }
 }
