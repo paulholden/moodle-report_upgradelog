@@ -29,7 +29,7 @@ defined('MOODLE_INTERNAL') || die;
  * @copyright  2019 Paul Holden (paulh@moodle.com)
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class report_upgradelog_phpunit_coverage_info extends phpunit_coverage_info {
+return new class extends phpunit_coverage_info {
     /** @var array The list of folders relative to the plugin root to whitelist in coverage generation. */
     protected $whitelistfolders = [
         'classes',
@@ -44,5 +44,3 @@ class report_upgradelog_phpunit_coverage_info extends phpunit_coverage_info {
     /** @var array The list of files relative to the plugin root to excludelist in coverage generation. */
     protected $excludelistfiles = [];
 };
-
-return new report_upgradelog_phpunit_coverage_info();
