@@ -20,10 +20,27 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace report_upgradelog\privacy;
+
+use core_privacy\local\metadata\null_provider;
+
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->component = 'report_upgradelog';
-$plugin->release   = '1.0';
-$plugin->version   = 2019092600;
-$plugin->requires  = 2018051700; // Moodle 3.5 onwards.
-$plugin->maturity  = MATURITY_STABLE;
+/**
+ * Plugin privacy provider
+ *
+ * @package    report_upgradelog
+ * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements null_provider {
+
+    /**
+     * Plugin language string identifier to explain why this plugin stores no data
+     *
+     * @return string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

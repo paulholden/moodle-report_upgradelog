@@ -23,6 +23,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 $string['pluginname'] = 'Upgrade log';
+$string['privacy:metadata'] = 'The Upgrade log plugin does not store any personal data';
 $string['unknown'] = 'Unknown';
 $string['upgrades'] = 'Upgrades';
 $string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site
