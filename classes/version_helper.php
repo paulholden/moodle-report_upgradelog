@@ -64,6 +64,20 @@ class version_helper {
     ];
 
     /**
+     * Return formatted version string, accounting for truncated increment value
+     *
+     * @param string $version
+     * @return string
+     */
+    public static function get_version_string(string $version) : string {
+        if (floor($version) != $version) {
+            return sprintf('%.2f', $version);
+        }
+
+        return $version;
+    }
+
+    /**
      * Get branch (3.6, 3.7 etc) from version string
      *
      * @param string $version

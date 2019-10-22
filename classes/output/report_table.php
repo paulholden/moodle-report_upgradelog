@@ -104,6 +104,16 @@ class report_table extends table_sql implements renderable {
     }
 
     /**
+     * Format Moodle version column
+     *
+     * @param stdClass $row
+     * @return string
+     */
+    public function col_moodleversion(stdClass $row) : string {
+        return version_helper::get_version_string($row->moodleversion);
+    }
+
+    /**
      * Format Moodle release column
      *
      * @param stdClass $row

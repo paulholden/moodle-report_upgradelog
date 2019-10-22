@@ -36,7 +36,33 @@ use report_upgradelog\version_helper;
 class report_upgradelog_version_helper_testcase extends advanced_testcase {
 
     /**
-     * Data provider for test_get_release_name
+     * Data provider for {@see test_get_version_string}
+     *
+     * @return array
+     */
+    public function get_version_string_provider() : array {
+        return [
+            ['2019052000.1', '2019052000.10'],
+            ['2019052000.05', '2019052000.05'],
+            ['2019052000', '2019052000'],
+        ];
+    }
+
+    /**
+     * Test class get_release_name method
+     *
+     * @param string $version
+     * @param string $expected
+     * @return void
+     *
+     * @dataProvider get_version_string_provider
+     */
+    public function test_get_version_string(string $version, string $expected) {
+        $this->assertSame($expected, version_helper::get_version_string($version));
+    }
+
+    /**
+     * Data provider for {@see test_get_release_name}
      *
      * @return array
      */
