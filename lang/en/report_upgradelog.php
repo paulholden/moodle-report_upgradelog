@@ -26,7 +26,6 @@ $string['pluginname'] = 'Upgrade log';
 $string['privacy:metadata'] = 'The Upgrade log plugin does not store any personal data';
 $string['unknown'] = 'Unknown';
 $string['upgrades'] = 'Upgrades';
-$string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site
-
-See <a href="https://docs.moodle.org/dev/Releases">releases documentation</a> for further information';
+$string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site';
+$string['upgrades_link'] = 'https://docs.moodle.org/dev/Releases';
 $string['upgradelog:view'] = 'View upgrade log';
