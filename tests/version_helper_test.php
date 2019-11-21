@@ -68,6 +68,7 @@ class report_upgradelog_version_helper_testcase extends advanced_testcase {
      */
     public function get_release_name_provider() : array {
         return [
+            ['2019111800', '3.8'],
             ['2019052002.04', '3.7.2+'],
             ['2019052001.1', '3.7.1+'],
             ['2019052001', '3.7.1'],

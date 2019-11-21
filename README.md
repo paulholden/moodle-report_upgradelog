@@ -10,7 +10,7 @@ Copy the upgradelog folder into your Moodle /report directory and visit the admi
 
 Once installed, you should see a new option in your site administration:
 
->  Reports ->  Upgrade log
+> Reports ->  Upgrade log
 
 ## Author
 

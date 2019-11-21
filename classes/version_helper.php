@@ -40,6 +40,7 @@ class version_helper {
 
     /** @var array $branchdates See https://docs.moodle.org/dev/Releases */
     protected static $branchdates = [
+        20191118 => '3.8',
         20190520 => '3.7',
         20181203 => '3.6',
         20180517 => '3.5',
