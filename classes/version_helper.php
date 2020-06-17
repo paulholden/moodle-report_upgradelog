@@ -24,8 +24,6 @@ namespace report_upgradelog;
 
 use core_text;
 
-defined('MOODLE_INTERNAL') || die;
-
 /**
  * Helper class for Moodle release name calculation
  *
@@ -40,6 +38,7 @@ class version_helper {
 
     /** @var array $branchdates See https://docs.moodle.org/dev/Releases */
     protected static $branchdates = [
+        20200615 => '3.9',
         20191118 => '3.8',
         20190520 => '3.7',
         20181203 => '3.6',

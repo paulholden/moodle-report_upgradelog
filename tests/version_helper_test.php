@@ -20,9 +20,7 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
-use report_upgradelog\version_helper;
+namespace report_upgradelog;
 
 /**
  * Testcase for version_helper class
@@ -30,10 +28,10 @@ use report_upgradelog\version_helper;
  * @package     report_upgradelog
  * @group       report_upgradelog
  * @covers      \report_upgradelog\version_helper
- * @copyright   2019 Paul Holden <paulh@moodle.com>
+ * @copyright   2019 Paul Holden (paulh@moodle.com)
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class report_upgradelog_version_helper_testcase extends advanced_testcase {
+class version_helper_testcase extends \advanced_testcase {
 
     /**
      * Data provider for {@see test_get_version_string}
@@ -68,6 +66,7 @@ class report_upgradelog_version_helper_testcase extends advanced_testcase {
      */
     public function get_release_name_provider() : array {
         return [
+            ['2020061500', '3.9'],
             ['2019111800', '3.8'],
             ['2019052002.04', '3.7.2+'],
             ['2019052001.1', '3.7.1+'],
