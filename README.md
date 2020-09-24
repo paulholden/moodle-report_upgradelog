@@ -1,4 +1,4 @@
-# Upgrade log report [![Build Status](https://travis-ci.org/paulholden/moodle-report_upgradelog.svg?branch=master)](https://travis-ci.org/paulholden/moodle-report_upgradelog)
+# Upgrade log report [![Build Status](https://travis-ci.com/paulholden/moodle-report_upgradelog.svg?branch=master)](https://travis-ci.com/paulholden/moodle-report_upgradelog)
 
 ## Requirements
 
