@@ -8,4 +8,6 @@ Feature: An admin can view the Upgrade log report
   Scenario: View the Upgrade log report
     Given I log in as "admin"
     When I navigate to "Reports > Upgrade log" in site administration
-    Then I should see "Upgrade log"
+    Then the following should exist in the "generaltable" table:
+      | Information    | Time                |
+      | Core installed | ##today##l, j F Y## |

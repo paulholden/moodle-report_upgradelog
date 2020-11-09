@@ -22,6 +22,8 @@
 
 namespace report_upgradelog;
 
+use advanced_testcase;
+
 /**
  * Testcase for version_helper class
  *
@@ -31,14 +33,14 @@ namespace report_upgradelog;
  * @copyright   2019 Paul Holden (paulh@moodle.com)
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class version_helper_testcase extends \advanced_testcase {
+class version_helper_testcase extends advanced_testcase {
 
     /**
      * Data provider for {@see test_get_version_string}
      *
      * @return array
      */
-    public function get_version_string_provider() : array {
+    public function get_version_string_provider(): array {
         return [
             ['2019052000.1', '2019052000.10'],
             ['2019052000.05', '2019052000.05'],
@@ -64,8 +66,9 @@ class version_helper_testcase extends \advanced_testcase {
      *
      * @return array
      */
-    public function get_release_name_provider() : array {
+    public function get_release_name_provider(): array {
         return [
+            ['2020110900', '3.10'],
             ['2020061500', '3.9'],
             ['2019111800', '3.8'],
             ['2019052002.04', '3.7.2+'],

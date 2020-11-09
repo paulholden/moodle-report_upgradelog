@@ -23,7 +23,7 @@
 defined('MOODLE_INTERNAL') || die;
 
 $plugin->component = 'report_upgradelog';
-$plugin->release   = '1.2';
-$plugin->version   = 2020061800;
+$plugin->release   = '1.3';
+$plugin->version   = 2020110900;
 $plugin->requires  = 2018051700; // Moodle 3.5 onwards.
 $plugin->maturity  = MATURITY_STABLE;
