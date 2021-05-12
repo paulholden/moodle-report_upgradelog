@@ -25,6 +25,7 @@ namespace report_upgradelog\output;
 use renderable;
 use stdClass;
 use table_sql;
+use core_user\fields;
 use report_upgradelog\version_helper;
 
 defined('MOODLE_INTERNAL') || die;
@@ -74,15 +75,28 @@ class report_table extends table_sql implements renderable {
     }
 
     /**
-     * Initializes table SQL properties
+     * Helper method to ensure appropriate method is called to retrieve user name fields
      *
-     * @return void
+     * @param string $usertablealias
+     * @return string
+     */
+    private function user_name_fields(string $usertablealias): string {
+        if (class_exists(fields::class)) {
+            return fields::for_name()->get_sql($usertablealias, false, '', '', false)->selects;
+        }
+
+        return get_all_user_name_fields(true, $usertablealias);
+    }
+
+    /**
+     * Initializes table SQL properties
      */
     protected function init_sql() {
         global $DB;
 
         $fields = 'ul.timemodified, ul.userid, ul.info, ul.version AS moodleversion, 0 AS moodlerelease, ' .
-            get_all_user_name_fields(true, 'u');
+            $this->user_name_fields('u');
+
         $from = '{upgrade_log} ul LEFT JOIN {user} u ON u.id = ul.userid';
 
         list($infowhere, $params) = $DB->get_in_or_equal(['Core installed', 'Core upgraded'], SQL_PARAMS_NAMED);
