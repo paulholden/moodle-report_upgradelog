@@ -53,11 +53,10 @@ class version_helper_testcase extends advanced_testcase {
      *
      * @param string $version
      * @param string $expected
-     * @return void
      *
      * @dataProvider get_version_string_provider
      */
-    public function test_get_version_string(string $version, string $expected) {
+    public function test_get_version_string(string $version, string $expected): void {
         $this->assertSame($expected, version_helper::get_version_string($version));
     }
 
@@ -68,6 +67,7 @@ class version_helper_testcase extends advanced_testcase {
      */
     public function get_release_name_provider(): array {
         return [
+            ['2021051700', '3.11'],
             ['2020110900', '3.10'],
             ['2020061500', '3.9'],
             ['2019111800', '3.8'],
@@ -92,11 +92,10 @@ class version_helper_testcase extends advanced_testcase {
      *
      * @param string $version
      * @param string $expected
-     * @return void
      *
      * @dataProvider get_release_name_provider
      */
-    public function test_get_release_name(string $version, string $expected) {
+    public function test_get_release_name(string $version, string $expected): void {
         $this->assertEquals($expected, version_helper::get_release_name($version));
     }
 }

@@ -38,6 +38,7 @@ class version_helper {
 
     /** @var array $branchdates See https://docs.moodle.org/dev/Releases */
     protected static $branchdates = [
+        20210517 => '3.11',
         20201109 => '3.10',
         20200615 => '3.9',
         20191118 => '3.8',
@@ -70,7 +71,7 @@ class version_helper {
      * @param string $version
      * @return string
      */
-    public static function get_version_string(string $version) : string {
+    public static function get_version_string(string $version): string {
         if (floor($version) != $version) {
             return sprintf('%.2f', $version);
         }
@@ -84,7 +85,7 @@ class version_helper {
      * @param string $version
      * @return string
      */
-    protected static function get_branch_name(string $version) : string {
+    protected static function get_branch_name(string $version): string {
         $branchdate = core_text::substr($version, 0, self::BRANCH_DATE_LENGTH);
 
         return self::$branchdates[$branchdate] ?? '';
@@ -96,7 +97,7 @@ class version_helper {
      * @param string $version
      * @return int[]
      */
-    protected static function get_branch_release(string $version) : array {
+    protected static function get_branch_release(string $version): array {
         $suffix = core_text::substr($version, self::BRANCH_DATE_LENGTH);
 
         // The suffix will look like RR.XX where RR is the release and XX is the optional increment.
@@ -111,7 +112,7 @@ class version_helper {
      * @param string $version
      * @return string
      */
-    public static function get_release_name(string $version) : string {
+    public static function get_release_name(string $version): string {
         $branchname = self::get_branch_name($version);
         if (empty($branchname)) {
             return get_string('unknown', 'report_upgradelog');
