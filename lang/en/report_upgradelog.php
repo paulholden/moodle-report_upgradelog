@@ -15,8 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Plugin language strings
+ *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -25,6 +27,7 @@ defined('MOODLE_INTERNAL') || die;
 $string['pluginname'] = 'Upgrade log';
 $string['privacy:metadata'] = 'The Upgrade log plugin does not store any personal data';
 $string['unknown'] = 'Unknown';
+$string['upgrade'] = 'Upgrade';
 $string['upgrades'] = 'Upgrades';
 $string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site';
 $string['upgrades_link'] = 'https://docs.moodle.org/dev/Releases';

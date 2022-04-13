@@ -15,12 +15,15 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Entry point for showing upgrades report
+ *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use report_upgradelog\output\report_table;
+use core_reportbuilder\system_report_factory;
+use report_upgradelog\local\systemreports\upgrades;
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
@@ -31,7 +34,13 @@ echo /** @var core_renderer $OUTPUT */ $OUTPUT->header();
 
 echo $OUTPUT->heading_with_help(get_string('pluginname', 'report_upgradelog'), 'upgrades', 'report_upgradelog');
 
-($table = new report_table())->define_baseurl($PAGE->url);
-echo $PAGE->get_renderer('report_upgradelog')->render($table);
+// Check for presence of reportbuilder.
+if (class_exists(system_report_factory::class)) {
+    $report = system_report_factory::create(upgrades::class, context_system::instance());
+    echo $report->output();
+} else {
+    ($table = new \report_upgradelog\output\report_table())->define_baseurl($PAGE->url);
+    echo $PAGE->get_renderer('report_upgradelog')->render($table);
+}
 
 echo $OUTPUT->footer();
