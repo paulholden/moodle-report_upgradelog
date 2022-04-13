@@ -14,12 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace report_upgradelog\output;
 
 use renderable;
@@ -30,13 +24,14 @@ use report_upgradelog\version_helper;
 
 defined('MOODLE_INTERNAL') || die;
 
+global $CFG;
 require_once($CFG->libdir . '/tablelib.php');
 
 /**
  * Report table
  *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class report_table extends table_sql implements renderable {
@@ -113,7 +108,7 @@ class report_table extends table_sql implements renderable {
      * @param stdClass $row
      * @return string
      */
-    public function col_info(stdClass $row) : string {
+    public function col_info(stdClass $row): string {
         return $this->format_text($row->info, FORMAT_PLAIN);
     }
 
@@ -123,7 +118,7 @@ class report_table extends table_sql implements renderable {
      * @param stdClass $row
      * @return string
      */
-    public function col_moodleversion(stdClass $row) : string {
+    public function col_moodleversion(stdClass $row): string {
         return version_helper::get_version_string($row->moodleversion);
     }
 
@@ -133,7 +128,7 @@ class report_table extends table_sql implements renderable {
      * @param stdClass $row
      * @return string
      */
-    public function col_moodlerelease(stdClass $row) : string {
+    public function col_moodlerelease(stdClass $row): string {
         return version_helper::get_release_name($row->moodleversion);
     }
 
@@ -143,7 +138,7 @@ class report_table extends table_sql implements renderable {
      * @param stdClass $row
      * @return string
      */
-    public function col_timemodified(stdClass $row) : string {
+    public function col_timemodified(stdClass $row): string {
         return userdate($row->timemodified);
     }
 }

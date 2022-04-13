@@ -14,12 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace report_upgradelog;
 
 use core_text;
@@ -28,7 +22,7 @@ use core_text;
  * Helper class for Moodle release name calculation
  *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class version_helper {

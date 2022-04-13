@@ -14,12 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace report_upgradelog;
 
 use advanced_testcase;
@@ -28,12 +22,11 @@ use advanced_testcase;
  * Testcase for version_helper class
  *
  * @package     report_upgradelog
- * @group       report_upgradelog
  * @covers      \report_upgradelog\version_helper
- * @copyright   2019 Paul Holden (paulh@moodle.com)
+ * @copyright   2019 Paul Holden <paulh@moodle.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class version_helper_testcase extends advanced_testcase {
+class version_helper_test extends advanced_testcase {
 
     /**
      * Data provider for {@see test_get_version_string}

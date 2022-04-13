@@ -15,8 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
+ * Plugin capabilities
+ *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

@@ -14,23 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace report_upgradelog\output;
 
 use plugin_renderer_base;
-
-defined('MOODLE_INTERNAL') || die;
 
 /**
  * Plugin renderer
  *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class renderer extends plugin_renderer_base {

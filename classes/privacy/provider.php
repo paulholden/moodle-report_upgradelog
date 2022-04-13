@@ -14,23 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-/**
- * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
- * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
- */
-
 namespace report_upgradelog\privacy;
 
 use core_privacy\local\metadata\null_provider;
-
-defined('MOODLE_INTERNAL') || die;
 
 /**
  * Plugin privacy provider
  *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden (paulh@moodle.com)
+ * @copyright  2019 Paul Holden <paulh@moodle.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class provider implements null_provider {
@@ -40,7 +32,7 @@ class provider implements null_provider {
      *
      * @return string
      */
-    public static function get_reason() : string {
+    public static function get_reason(): string {
         return 'privacy:metadata';
     }
 }
