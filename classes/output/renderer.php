@@ -36,7 +36,7 @@ class renderer extends plugin_renderer_base {
      * @param report_table $table
      * @return string
      */
-    protected function render_report_table(report_table $table) {
+    protected function render_report_table(report_table $table): string {
         ob_start();
 
         $table->out(self::REPORT_TABLE_PAGESIZE, false);

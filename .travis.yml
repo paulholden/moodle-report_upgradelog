@@ -1,7 +1,7 @@
 language: php
 
 addons:
-  postgresql: "9.6"
+  postgresql: "10"
 
 services:
   - docker
@@ -25,6 +25,8 @@ matrix:
       env: MOODLE_BRANCH=MOODLE_310_STABLE
     - php: 7.4
       env: MOODLE_BRANCH=MOODLE_311_STABLE
+    - php: 7.4
+      env: MOODLE_BRANCH=MOODLE_400_STABLE
 
 before_install:
   - phpenv config-rm xdebug.ini

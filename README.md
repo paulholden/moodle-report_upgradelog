@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Moodle 3.5 or later.
+- Moodle 3.9 or later.
 
 ## Installation
 
@@ -16,5 +16,5 @@ Once installed, you should see a new option in your site administration:
 
 Paul Holden (paulh@moodle.com)
 
-- Updates: https://moodle.org/plugins/view.php?plugin=report_upgradelog
+- Updates: https://moodle.org/plugins/report_upgradelog
 - Latest code: https://github.com/paulholden/moodle-report_upgradelog
