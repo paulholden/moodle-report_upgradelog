@@ -33,7 +33,7 @@ class version_helper_test extends advanced_testcase {
      *
      * @return array
      */
-    public function get_version_string_provider(): array {
+    public static function get_version_string_provider(): array {
         return [
             ['2019052000.1', '2019052000.10'],
             ['2019052000.05', '2019052000.05'],
@@ -58,7 +58,7 @@ class version_helper_test extends advanced_testcase {
      *
      * @return array
      */
-    public function get_release_name_provider(): array {
+    public static function get_release_name_provider(): array {
         return [
             ['2023042400', '4.2'],
             ['2022112800', '4.1'],
@@ -79,7 +79,7 @@ class version_helper_test extends advanced_testcase {
             ['2010122500', '2.0.1'],
             ['2010112400', '2.0'],
             // Unknown (3.8dev).
-            ['2019092000', 'Unknown']
+            ['2019092000', 'Unknown'],
         ];
     }
 
