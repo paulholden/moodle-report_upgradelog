@@ -60,6 +60,7 @@ class version_helper_test extends advanced_testcase {
      */
     public static function get_release_name_provider(): array {
         return [
+            ['2023100900', '4.3'],
             ['2023042400', '4.2'],
             ['2022112800', '4.1'],
             ['2022041900', '4.0'],
