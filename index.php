@@ -34,13 +34,7 @@ echo /** @var core_renderer $OUTPUT */ $OUTPUT->header();
 
 echo $OUTPUT->heading_with_help(get_string('pluginname', 'report_upgradelog'), 'upgrades', 'report_upgradelog');
 
-// Check for presence of reportbuilder.
-if (class_exists(system_report_factory::class)) {
-    $report = system_report_factory::create(upgrades::class, context_system::instance());
-    echo $report->output();
-} else {
-    ($table = new \report_upgradelog\output\report_table())->define_baseurl($PAGE->url);
-    echo $PAGE->get_renderer('report_upgradelog')->render($table);
-}
+$report = system_report_factory::create(upgrades::class, context_system::instance());
+echo $report->output();
 
 echo $OUTPUT->footer();
