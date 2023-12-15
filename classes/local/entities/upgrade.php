@@ -35,6 +35,17 @@ use report_upgradelog\version_helper;
 class upgrade extends base {
 
     /**
+     * Database tables that this entity uses
+     *
+     * To ensure backwards compatibility, return those defined by {@see get_default_table_aliases}
+     *
+     * @return string[]
+     */
+    protected function get_default_tables(): array {
+        return array_keys($this->get_default_table_aliases());
+    }
+
+    /**
      * Database tables that this entity uses and their default aliases
      *
      * @return array
