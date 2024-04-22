@@ -26,7 +26,7 @@ use advanced_testcase;
  * @copyright   2019 Paul Holden <paulh@moodle.com>
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class version_helper_test extends advanced_testcase {
+final class version_helper_test extends advanced_testcase {
 
     /**
      * Data provider for {@see test_get_version_string}
@@ -60,6 +60,7 @@ class version_helper_test extends advanced_testcase {
      */
     public static function get_release_name_provider(): array {
         return [
+            ['2024042200', '4.4'],
             ['2023100900', '4.3'],
             ['2023042400', '4.2'],
             ['2022112800', '4.1'],
