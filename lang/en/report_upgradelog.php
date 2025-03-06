@@ -31,4 +31,4 @@ $string['upgrade'] = 'Upgrade';
 $string['upgradelog:view'] = 'View upgrade log';
 $string['upgrades'] = 'Upgrades';
 $string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site';
-$string['upgrades_link'] = 'https://docs.moodle.org/dev/Releases';
+$string['upgrades_link'] = 'https://moodledev.io/general/releases';
