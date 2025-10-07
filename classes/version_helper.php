@@ -30,8 +30,9 @@ class version_helper {
     /** @var int Branch date is in the format YYYYMMDD so 8 characters */
     const BRANCH_DATE_LENGTH = 8;
 
-    /** @var array $branchdates See https://docs.moodle.org/dev/Releases */
+    /** @var array $branchdates See https://moodledev.io/general/releases */
     protected static $branchdates = [
+        20251006 => '5.1',
         20250414 => '5.0',
         20241007 => '4.5',
         20240422 => '4.4',
