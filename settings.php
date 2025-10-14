@@ -25,8 +25,11 @@
 defined('MOODLE_INTERNAL') || die;
 
 /** @var admin_root $ADMIN */
-$ADMIN->add('reports', new admin_externalpage('reportupgradelog', get_string('pluginname', 'report_upgradelog'),
-    new moodle_url('/report/upgradelog/index.php'), 'report/upgradelog:view'
+$ADMIN->add('reports', new admin_externalpage(
+    'reportupgradelog',
+    get_string('pluginname', 'report_upgradelog'),
+    new moodle_url('/report/upgradelog/index.php'),
+    'report/upgradelog:view',
 ));
 
 // No report settings.

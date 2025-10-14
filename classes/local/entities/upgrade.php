@@ -33,7 +33,6 @@ use report_upgradelog\version_helper;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class upgrade extends base {
-
     /**
      * Database tables that this entity uses
      *
@@ -104,7 +103,7 @@ class upgrade extends base {
             ->set_type(column::TYPE_TEXT)
             ->add_fields("{$upgradetable}.info")
             ->set_is_sortable(true, [$DB->sql_order_by_text("{$upgradetable}.info")])
-            ->add_callback(static function(string $information): string {
+            ->add_callback(static function (string $information): string {
                 return format_text($information, FORMAT_PLAIN);
             });
 

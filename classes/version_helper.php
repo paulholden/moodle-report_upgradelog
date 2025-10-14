@@ -26,7 +26,6 @@ use core_text;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class version_helper {
-
     /** @var int Branch date is in the format YYYYMMDD so 8 characters */
     const BRANCH_DATE_LENGTH = 8;
 
@@ -85,12 +84,12 @@ class version_helper {
      * Get branch (3.6, 3.7 etc) from version string
      *
      * @param string $version
-     * @return string
+     * @return string|null
      */
-    protected static function get_branch_name(string $version): string {
+    protected static function get_branch_name(string $version): ?string {
         $branchdate = core_text::substr($version, 0, self::BRANCH_DATE_LENGTH);
 
-        return self::$branchdates[$branchdate] ?? '';
+        return self::$branchdates[$branchdate] ?? null;
     }
 
     /**
@@ -116,11 +115,11 @@ class version_helper {
      */
     public static function get_release_name(string $version): string {
         $branchname = self::get_branch_name($version);
-        if (empty($branchname)) {
+        if ($branchname === null) {
             return get_string('unknown', 'report_upgradelog');
         }
 
-        list($release, $increment) = self::get_branch_release($version);
+        [$release, $increment] = self::get_branch_release($version);
 
         // Include release if greater than zero.
         $branchrelease = ($release > 0 ? ".{$release}" : '');

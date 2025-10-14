@@ -32,7 +32,6 @@ use report_upgradelog\local\entities\upgrade;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class upgrades extends system_report {
-
     /**
      * Initialise report
      */
@@ -47,8 +46,11 @@ class upgrades extends system_report {
         $this->add_entity($upgradeentity);
 
         // Restrict to only core install/upgrade logs.
-        [$infoselect, $params] = $DB->get_in_or_equal(['Core installed', 'Core upgraded'], SQL_PARAMS_NAMED,
-            database::generate_param_name() . '_');
+        [$infoselect, $params] = $DB->get_in_or_equal(
+            ['Core installed', 'Core upgraded'],
+            SQL_PARAMS_NAMED,
+            database::generate_param_name('_'),
+        );
 
         $paramplugin = database::generate_param_name();
         $select = "{$upgradetable}.plugin = :{$paramplugin} AND {$DB->sql_compare_text("{$upgradetable}.info")} {$infoselect}";

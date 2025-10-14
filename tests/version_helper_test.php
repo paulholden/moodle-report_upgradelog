@@ -27,7 +27,6 @@ use advanced_testcase;
  * @license     http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class version_helper_test extends advanced_testcase {
-
     /**
      * Data provider for {@see test_get_version_string}
      *
