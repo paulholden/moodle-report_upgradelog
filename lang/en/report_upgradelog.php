@@ -25,10 +25,14 @@
 defined('MOODLE_INTERNAL') || die;
 
 $string['pluginname'] = 'Upgrade log';
+$string['pluginupgrades'] = 'Plugin upgrades';
 $string['privacy:metadata'] = 'The Upgrade log plugin does not store any personal data';
 $string['unknown'] = 'Unknown';
 $string['upgrade'] = 'Upgrade';
 $string['upgradelog:view'] = 'View upgrade log';
+$string['upgradepluginsummary'] = '{$a->installed} installed, {$a->updated} updated';
 $string['upgrades'] = 'Upgrades';
 $string['upgrades_help'] = 'This report lists all core Moodle upgrades that have been performed on this site';
 $string['upgrades_link'] = 'https://moodledev.io/general/releases';
+$string['versionnew'] = 'New version';
+$string['versionold'] = 'Old version';
