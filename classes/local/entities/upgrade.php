@@ -162,12 +162,7 @@ class upgrade extends base {
             $this->get_entity_name(),
             "{$upgradetable}.version"
         ))
-            ->add_joins($this->get_joins())
-            ->set_limited_operators([
-                number::ANY_VALUE,
-                number::EQUAL_OR_LESS_THAN,
-                number::EQUAL_OR_GREATER_THAN,
-            ]);
+            ->add_joins($this->get_joins());
 
         // Time modified.
         $filters[] = (new filter(

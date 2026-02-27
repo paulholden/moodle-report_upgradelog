@@ -98,6 +98,7 @@ class upgrades extends system_report {
     protected function add_filters(): void {
         $this->add_filters_from_entities([
             'user:fullname',
+            'upgrade:version',
             'upgrade:timemodified',
         ]);
     }
