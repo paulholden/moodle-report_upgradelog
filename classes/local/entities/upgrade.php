@@ -24,6 +24,7 @@ use core_reportbuilder\local\helpers\format;
 use core_reportbuilder\local\report\{column, filter};
 use core_reportbuilder\local\filters\{date, number};
 use report_upgradelog\version_helper;
+use report_upgradelog\details_helper;
 
 /**
  * Upgrade log entity class implementation
@@ -65,9 +66,9 @@ class upgrade extends base {
     /**
      * Initialize the entity
      *
-     * @return base
+     * @return self
      */
-    public function initialise(): base {
+    public function initialise(): self {
         $columns = $this->get_all_columns();
         foreach ($columns as $column) {
             $this->add_column($column);
@@ -92,20 +93,6 @@ class upgrade extends base {
         global $DB;
 
         $upgradetable = $this->get_table_alias('upgrade_log');
-
-        // Information.
-        $columns[] = (new column(
-            'information',
-            new lang_string('info'),
-            $this->get_entity_name()
-        ))
-            ->add_joins($this->get_joins())
-            ->set_type(column::TYPE_TEXT)
-            ->add_fields("{$upgradetable}.info")
-            ->set_is_sortable(true, [$DB->sql_order_by_text("{$upgradetable}.info")])
-            ->add_callback(static function (string $information): string {
-                return format_text($information, FORMAT_PLAIN);
-            });
 
         // Moodle version.
         $columns[] = (new column(
@@ -141,7 +128,21 @@ class upgrade extends base {
             ->set_type(column::TYPE_TIMESTAMP)
             ->add_fields("{$upgradetable}.timemodified")
             ->set_is_sortable(true)
-            ->add_callback([format::class, 'userdate']);
+            ->add_callback(function ($timestamp) {
+                return \core_date::strftime(get_string('strftimerecentfull', 'langconfig'), $timestamp);
+            });
+
+        // Details (plugin updates triggered by this core upgrade).
+        $columns[] = (new column(
+            'information',
+            new lang_string('info'),
+            $this->get_entity_name()
+        ))
+            ->add_joins($this->get_joins())
+            ->set_type(column::TYPE_TEXT)
+            ->add_fields("{$upgradetable}.timemodified, {$upgradetable}.info")
+            ->set_is_sortable(false)
+            ->add_callback([details_helper::class, 'build_details']);
 
         return $columns;
     }

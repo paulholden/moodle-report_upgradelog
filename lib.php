@@ -15,32 +15,33 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Entry point for showing upgrades report
+ * Lib file.
  *
  * @package    report_upgradelog
- * @copyright  2019 Paul Holden <paulh@moodle.com>
+ * @copyright  2026 Alex Damsted <alexdamsted@catalyst-au.net>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-use core_reportbuilder\system_report_factory;
-use report_upgradelog\local\systemreports\upgrades;
+/**
+ * Returns navigation controls (tabtree).
+ *
+ * @param string $currenttab The current tab
+ * @return tabtree
+ */
+function generate_tabs(string $currenttab): tabtree {
+    $tabs = [];
 
-require_once(__DIR__ . '/../../config.php');
-require_once($CFG->libdir . '/adminlib.php');
-require_once(__DIR__ . '/lib.php');
+    $tabs[] = new tabobject(
+        'view',
+        new moodle_url('/report/upgradelog/index.php'),
+        get_string('pluginname', 'report_upgradelog')
+    );
 
-admin_externalpage_setup('reportupgradelog', '', null, '', ['pagelayout' => 'report']);
+    $tabs[] = new tabobject(
+        'viewall',
+        new moodle_url('/report/upgradelog/details.php'),
+        get_string('pluginupgrades', 'report_upgradelog')
+    );
 
-echo /** @var core_renderer $OUTPUT */ $OUTPUT->header();
-
-echo $OUTPUT->heading_with_help(get_string('pluginname', 'report_upgradelog'), 'upgrades', 'report_upgradelog');
-
-// Generate tabs.
-if ($tabs = generate_tabs('view')) {
-    echo $OUTPUT->render($tabs);
+    return new tabtree($tabs, $currenttab);
 }
-
-$report = system_report_factory::create(upgrades::class, context_system::instance());
-echo $report->output();
-
-echo $OUTPUT->footer();
