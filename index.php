@@ -27,12 +27,18 @@ use report_upgradelog\local\systemreports\upgrades;
 
 require_once(__DIR__ . '/../../config.php');
 require_once($CFG->libdir . '/adminlib.php');
+require_once(__DIR__ . '/lib.php');
 
 admin_externalpage_setup('reportupgradelog', '', null, '', ['pagelayout' => 'report']);
 
 echo /** @var core_renderer $OUTPUT */ $OUTPUT->header();
 
 echo $OUTPUT->heading_with_help(get_string('pluginname', 'report_upgradelog'), 'upgrades', 'report_upgradelog');
+
+// Generate tabs.
+if ($tabs = generate_tabs('view')) {
+    echo $OUTPUT->render($tabs);
+}
 
 $report = system_report_factory::create(upgrades::class, context_system::instance());
 echo $report->output();
