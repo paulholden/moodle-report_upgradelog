@@ -2,7 +2,7 @@
 
 ## Requirements
 
-- Moodle 4.1 or later.
+- Moodle 4.5 or later.
 
 ## Installation
 

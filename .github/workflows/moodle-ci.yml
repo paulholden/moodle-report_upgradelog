@@ -2,13 +2,16 @@ name: moodle-plugin-ci
 
 on: [push, pull_request]
 
+permissions:
+  contents: read
+
 jobs:
   test:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     services:
       postgres:
-        image: postgres:15
+        image: postgres:17
         env:
           POSTGRES_USER: 'postgres'
           POSTGRES_HOST_AUTH_METHOD: 'trust'
@@ -20,29 +23,26 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - php: '8.0'
-            moodle-branch: 'MOODLE_401_STABLE'
-          - php: '8.2'
-            moodle-branch: 'MOODLE_404_STABLE'
-          - php: '8.3'
+          - php: '8.1'
             moodle-branch: 'MOODLE_405_STABLE'
-          - php: '8.4'
+          - php: '8.2'
             moodle-branch: 'MOODLE_500_STABLE'
-          - php: '8.4'
+          - php: '8.3'
             moodle-branch: 'MOODLE_501_STABLE'
 
     steps:
       - name: Check out repository code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: plugin
+          persist-credentials: false
 
       - name: Setup PHP ${{ matrix.php }}
         uses: shivammathur/setup-php@v2
         with:
           php-version: ${{ matrix.php }}
           extensions: ${{ matrix.extensions }}
-          ini-values: max_input_vars=5000
+          ini-values: max_input_vars=5000, opcache.enable_cli=1, opcache.jit=disable
           coverage: pcov
 
       - name: Initialise moodle-plugin-ci
@@ -82,7 +82,7 @@ jobs:
 
       - name: Behat failures
         if: ${{ failure() && steps.behat.outcome == 'failure' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: Behat failures (${{ join(matrix.*, ', ') }})
           path: ${{ github.workspace }}/moodledata/behat_dump
