@@ -30,7 +30,7 @@ final class version_helper_test extends advanced_testcase {
     /**
      * Data provider for {@see test_get_version_string}
      *
-     * @return array
+     * @return array[]
      */
     public static function get_version_string_provider(): array {
         return [
@@ -55,10 +55,12 @@ final class version_helper_test extends advanced_testcase {
     /**
      * Data provider for {@see test_get_release_name}
      *
-     * @return array
+     * @return array[]
      */
     public static function get_release_name_provider(): array {
         return [
+            ['2026100500', '5.3'],
+            ['2026042000', '5.2'],
             ['2025100600', '5.1'],
             ['2025041400', '5.0'],
             ['2024100700', '4.5'],

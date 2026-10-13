@@ -31,6 +31,8 @@ class version_helper {
 
     /** @var array $branchdates See https://moodledev.io/general/releases */
     protected static $branchdates = [
+        20261005 => '5.3',
+        20260420 => '5.2',
         20251006 => '5.1',
         20250414 => '5.0',
         20241007 => '4.5',
